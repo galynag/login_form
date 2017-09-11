@@ -6,6 +6,7 @@ import { observer, inject } from 'mobx-react';
 
 import LoginForm from './login-form';
 
+
 const Component = inject('loginStore')(observer(({ loginStore }) => {
     return (
         <LoginForm

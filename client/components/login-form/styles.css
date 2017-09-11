@@ -3,4 +3,5 @@
 }
 .denied {
     border-bottom-color: red;
+    background-color: red;
 }

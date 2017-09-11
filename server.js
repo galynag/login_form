@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import bodyParser from 'body-parser';
 
 const PORT = 7700;
 const USERS = [
@@ -32,10 +33,15 @@ if (isDevelopment) {
   app.use(express.static(PUBLIC_PATH));
 }
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.get("/users", function(req, res) {
   res.send(USERS);
 });
 app.post("/login", function(req, res) {
+    // let user_name=req.body.user;
+    // let password=req.body.password;
+    // console.log(`Login: ${user_name}, Pass: ${password}`);
     res.send(LOGUSERS);
 });
 

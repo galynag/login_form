@@ -2,8 +2,10 @@
  * Created by Galina on 11.09.2017.
  */
 import { observable, computed, action, asMap, autorun } from 'mobx';
+import $ from 'jquery';
 
 class UserLogin {
+
     @observable login = observable.map();
 
     constructor(loginData = {}) {
@@ -16,6 +18,7 @@ class UserLogin {
 }
 
 class LoginStore {
+
     @observable logins;
 
     constructor() {
@@ -36,9 +39,10 @@ class LoginStore {
             loginArray.push(new UserLogin(login));
         });
         this.logins = loginArray;
+        console.log('loginArray',loginArray)
     }
     checkUser() {
-        alert('check users');
+        ($('#login').val() === 'User' && $('#pass').val() === 'Password') ? alert(`done`) : alert('denied');
     }
 }
 const loginStore = new LoginStore();
